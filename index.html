@@ -47,6 +47,28 @@ img {
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <link rel="stylesheet" href="/mjxgui.css">
 <script src="/mjxgui.js"></script>
+ <script>
+            MathJax = {
+                tex: {
+                    inlineMath: [
+                        ['$', '$'],
+                        ['\\(', '\\)'],
+                    ],
+                    displayMath: [['$$', '$$']],
+                },
+                svg: {
+                    fontCache: 'global',
+                },
+                options: {
+                    menuOptions: {
+                        settings: {
+                            zoom: 'NoZoom',
+                            zscale: '250%',
+                        },
+                    },
+                },
+            };
+        </script>
 <button id="mjxgui-button" style="
                 margin: 30px;
                 padding: 10px;
@@ -55,6 +77,22 @@ img {
             ">
             Add Equation
         </button>
+
+ <script>
+            const eqnOutput = document.querySelector('#equation-output');
+            const mjxgui = new MJXGUI('#mjxgui-button', function (
+                latex,
+                instance,
+            ) {
+                MathJax.typesetClear([eqnOutput]);
+
+                eqnOutput.innerHTML += '$$' + latex + '$$' + '<br>';
+
+                MathJax.typesetPromise([eqnOutput]).then(() => {});
+            });
+        </script>
+
+
 </html>
 <meta name="viewport" content="width=device-width">
 <meta charset="utf-8">
