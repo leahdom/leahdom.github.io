@@ -28,7 +28,7 @@
     border-radius: 6px;
     box-shadow: var(--default-shadow);
 
-    padding: 20px;
+    padding: 10px;
     min-width: 280px;
     width: min(600px, 80%);
 }
@@ -95,8 +95,8 @@
 }
 
 .mjxgui_tab {
-    padding: 10px;
-    margin-top: 10px;
+    padding: 0px;
+    margin-top: 1px;
     display: none;
     align-items: stretch;
     flex-flow: row wrap;
